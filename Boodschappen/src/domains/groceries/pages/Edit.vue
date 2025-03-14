@@ -19,10 +19,8 @@ const id = route.params.id;
 const grocery = ref(getGroceryById(id).value);
 
 const message = ref('');
-const handleMessage = newMessage => {
-    message.value = newMessage;
-    console.log(newMessage);
-    editGrocery(newMessage);
+const handleMessage = changedGrocery => {
+    editGrocery(changedGrocery);
 };
 </script>
 
