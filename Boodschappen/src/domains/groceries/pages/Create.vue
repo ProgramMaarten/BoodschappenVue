@@ -1,5 +1,5 @@
 <template>
-    <GroceryForm :grocery="grocery" @updateMessage="handleMessage" />
+    <GroceryForm :grocery="grocery" @updateMessage="handleGrocery" />
     
 </template>
 
@@ -13,9 +13,9 @@ import {addGrocery} from './../store.js';
 const grocery = ref({product: '', price: 1, number: 1});
 
 
-const handleMessage = newMessage => {
+const handleGrocery = newGrocery => {
 
-    addGrocery(newMessage);
+    addGrocery(newGrocery);
 };
 </script>
 
