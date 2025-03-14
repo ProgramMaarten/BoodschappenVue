@@ -34,15 +34,7 @@ import {ref, reactive, computed} from 'vue';
 
 const groceries = defineModel();
 
-const subtotals = computed(() => {
-    const subTotals = [];
-    for (let i = 0; i < groceries.value.length; i++) {
-        subTotals.push(parseFloat((groceries.value[i]['price'] * groceries.value[i]['number']).toFixed(2)));
-    }
-    return subTotals;
-});
-
-const Total = computed(() => subtotals.value.reduce((i, j) => i + j, 0).toFixed(2));
+const Total = computed(() => groceries.value.reduce((i, j) => i + j.price*j.number, 0).toFixed(2));
 
 import {deleteGrocery} from './../store.js';
 </script>
